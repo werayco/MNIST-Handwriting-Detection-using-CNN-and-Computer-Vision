@@ -38,8 +38,6 @@ x_train,y_train = train_dat.iloc[:,1:],train_dat.iloc[:,0]
 
 x_test,y_test = test_dat.iloc[:,1:],test_dat.iloc[:,0]
 
-
-
 column_to_drop = x_test.columns[63]
 print(f"x_test: {x_test.shape}, y_test:{y_test.shape}")
 print(f"x_train: {x_train.shape},y_train:{y_train.shape}")
@@ -54,16 +52,6 @@ from keras.utils import to_categorical
 from keras.callbacks import EarlyStopping
 from keras.optimizers import Adam
 from keras.regularizers import l2
-
-# Define the model
-# model = Sequential()
-# model.add(Dense(256, activation='relu', input_shape=(784,)))
-# model.add(Dropout(0.5))
-# model.add(Dense(128, activation='relu'))
-# model.add(Dropout(0.5))
-# model.add(Dense(64, activation='relu'))
-# model.add(Dropout(0.5))
-# model.add(Dense(10, activation='softmax'))
 
 model = Sequential()
 model.add(Dense(256, activation='relu', input_shape=(784,), kernel_regularizer=l2(0.001)))
